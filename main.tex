@@ -8,116 +8,121 @@
 \usepackage{cite}
 
 \begin{document}
-
-\begin{titlepage}
-    \begin{center}
-        \vspace*{1cm}
-            
-        \Huge
-        \textbf{Segúndo Parcial}
-            
-        \vspace{0.5cm}
-        \LARGE
-        Ajuste de una imagen para vizualizarla en un arreglo de LEDs con menor resolución
-            
-        \vspace{1.5cm}
-            
-        \textbf{David Correa Ochoa} 
-        
-        \vspace{0.8cm}
-        
-        \textbf{Y}
-        
-        \vspace{0.8cm}
-        
-        \textbf{Francis David Roa Bernal}
-        \vfill
-            
-        \vspace{0.8cm}
-            
-        \Large
-        Departamento de Ingeniería Electrónica y Telecomunicaciones\\
-        Universidad de Antioquia\\
-        Medellín\\
-        Septiembre de 2021
-            
-    \end{center}
-\end{titlepage}
-
-\tableofcontents
-\newpage
-\section{Descripción del problema}\label{intro}
-Se debe extraer la información RGB de una imagen y modificar dicha información para que por medio de varios arreglos de LEDs RGB o NeoPixel en el simulador TinkerCad se pueda visualizar la misma imagen con una menor o mayor resolución.
-
-\section{Sección de contenido} \label{contenido}
-A continuación se proponen posibles soluciones al problema propuesto en la sección anterior.
-\begin{itemize}
-    \item Para la disminución de la resolución se propone;
-    \begin{itemize}
-        \item Dividir la información RGB de la imagen en una cantidad de bloques igual a la resolución del ancho y el alto que se desea lograr, para luego tomar la información RGB en los bloques y extraer un promedio  
-    \end{itemize}
-\end{itemize}
-\begin{comment}
-\subsection{Citación}
-Vamos a citar por ejemplo un artículo de \textbf{Albert Einstein} \cite{einstein}.
-También es posible citar libros \cite{dirac} o documentos en línea \cite{knuthwebsite}.\\\\
-Revisar en la última sección el formato de las referencias en IEEE.
-
-\subsection{Incluir código en el documento}
-%
-A continuación, se presenta el código \ref{codigo_ejemplo}, que nos permite incluir en el informe partes de programa que requieran una explicación adicional.
-\begin{lstlisting}[language=C++, label=codigo_ejemplo]
-// Programa desarrollado, compilado y ejecutado en https://www.onlinegdb.com
-#include <iostream>
-
-/*
- * Esto es un comentario de varias lineas
- */
-
-// Comentario de una sola linea
-
-#define N 10
-
-using namespace std;
-
-int main()
-{
-    
-    for( int i = 0 ; i < N ; i++ ){
-        
-        if( !(i % 2) )
-            cout << " El valor de i es -> " << i << endl;
-    }
-    
-    return 0;
-}
-
-//Resultado programa
-
-/*
-El valor de i es -> 0
-El valor de i es -> 2
-El valor de i es -> 4
-El valor de i es -> 6
-El valor de i es -> 8
-*/
-\end{lstlisting}
-En la sección \ref{imagenes}, se presentará como añadir ilustraciones al texto.
-
-\section{Inclusión de imágenes} \label{imagenes}
-
-En la Figura (\ref{fig:cpplogo}), se presenta el logo de C++ contenido en la carpeta images.
-
-\begin{figure}[h]
-\includegraphics[width=4cm]{cpplogo.png}
-\centering
-\caption{Logo de C++}
-\label{fig:cpplogo}
-\end{figure}
-
-Las secciones (\ref{intro}), (\ref{contenido}) y (\ref{imagenes}) dependen del estilo del documento.
-
-\bibliographystyle{IEEEtran}
-\bibliography{references}
-\end{comment}
+	
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			
+			\Huge
+			\textbf{Segundo Parcial}
+			
+			\vspace{0.5cm}
+			\LARGE
+			Ajuste de una imagen para visualizarla en un arreglo de LEDs con menor o mayor resolución
+			
+			\vspace{1.5cm}
+			
+			\textbf{David Correa Ochoa} 
+			
+			\vspace{0.8cm}
+			
+			\textbf{Y}
+			
+			\vspace{0.8cm}
+			
+			\textbf{Francis David Roa Bernal}
+			\vfill
+			
+			\vspace{0.8cm}
+			
+			\Large
+			Departamento de Ingeniería Electrónica y Telecomunicaciones\\
+			Universidad de Antioquia\\
+			Medellín\\
+			Septiembre de 2021
+			
+		\end{center}
+	\end{titlepage}
+	
+	\tableofcontents
+	\newpage
+	\section{Descripción del problema}\label{intro}
+	Se debe extraer la información RGB de una imagen y modificar dicha información para que por medio de varios arreglos de LEDs RGB o NeoPixel en el simulador TinkerCad se pueda visualizar la misma imagen con una menor o mayor resolución.
+	
+	\section{Sección de contenido} \label{contenido}
+	A continuación se proponen posibles soluciones al problema propuesto en la sección anterior.
+	\begin{itemize}
+		\item Para la disminución de la resolución se propone;
+		\begin{itemize}
+			\item Dividir la información RGB de la imagen en una cantidad de bloques igual a la resolución del ancho y el alto que se desea lograr, para luego tomar la información RGB en los bloques y extraer un promedio
+			\item En caso de que la información RGB de la imagen no se pueda dividir en la cantidad  deseada de bloques, se "mezclará" la información RGB para obtener la cantidad de bloques requerida
+		\end{itemize}
+		\item Para el aumento de la resolución se propone;
+		\begin{itemize}
+			\item Copiar las filas y columnas de la información RGB de la imagen y clonar la información de cada fila y columna hasta alcanzar la resolución deseada. 
+		\end{itemize}
+	\end{itemize}
+	\begin{comment}
+	\subsection{Citación}
+	Vamos a citar por ejemplo un artículo de \textbf{Albert Einstein} \cite{einstein}.
+	También es posible citar libros \cite{dirac} o documentos en línea \cite{knuthwebsite}.\\\\
+	Revisar en la última sección el formato de las referencias en IEEE.
+	
+	\subsection{Incluir código en el documento}
+	%
+	A continuación, se presenta el código \ref{codigo_ejemplo}, que nos permite incluir en el informe partes de programa que requieran una explicación adicional.
+	\begin{lstlisting}[language=C++, label=codigo_ejemplo]
+	// Programa desarrollado, compilado y ejecutado en https://www.onlinegdb.com
+	#include <iostream>
+	
+	/*
+	* Esto es un comentario de varias lineas
+	*/
+	
+	// Comentario de una sola linea
+	
+	#define N 10
+	
+	using namespace std;
+	
+	int main()
+	{
+	
+	for( int i = 0 ; i < N ; i++ ){
+	
+	if( !(i % 2) )
+	cout << " El valor de i es -> " << i << endl;
+	}
+	
+	return 0;
+	}
+	
+	//Resultado programa
+	
+	/*
+	El valor de i es -> 0
+	El valor de i es -> 2
+	El valor de i es -> 4
+	El valor de i es -> 6
+	El valor de i es -> 8
+	*/
+	\end{lstlisting}
+	En la sección \ref{imagenes}, se presentará como añadir ilustraciones al texto.
+	
+	\section{Inclusión de imágenes} \label{imagenes}
+	
+	En la Figura (\ref{fig:cpplogo}), se presenta el logo de C++ contenido en la carpeta images.
+	
+	\begin{figure}[h]
+	\includegraphics[width=4cm]{cpplogo.png}
+	\centering
+	\caption{Logo de C++}
+	\label{fig:cpplogo}
+	\end{figure}
+	
+	Las secciones (\ref{intro}), (\ref{contenido}) y (\ref{imagenes}) dependen del estilo del documento.
+	
+	\bibliographystyle{IEEEtran}
+	\bibliography{references}
+	\end{comment}
 \end{document}
