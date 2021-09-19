@@ -1,0 +1,7 @@
+consideraciones a tener en la implementación:
+
+-Tener en cuenta la reducida capacidad de memoria del arduino 
+
+-dependiendo de la clase de leds a implementar aumentará o disminuirá la complejidad de código 
+
+-el segmento de código creado en Qt debe ser adaptado para el lenguaje arduino
