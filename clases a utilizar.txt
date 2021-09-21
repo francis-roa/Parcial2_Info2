@@ -1,0 +1,12 @@
+En este proyecto se implementarán las siguientes 3 clase: QImage, Adafruit_NeoPixel y vector.
+
+La clase QImage del entorno QT se utilizará para obtener los datos de la imagen a modificar. Se utilizaran métodos 
+como el height(), width(), pixelcolor(), red(), blue() y green().
+
+La clase vector del entorno QT se utilizará para guardar los datos proporcionados por QImage en vectores, generando en el algoritmo 
+6 vectores, 3 de uso temporal y 3 que guardaran los datos de la imagen ya modificada, estos últimos 
+son los que se imprimirán en un archivo de texto para usarlos en Arduino.
+
+La clase Adafruit_NeoPixel del entorno arduino se utilizará en el código de Arduino donde permitirá a través del método 
+setPixelColor() para manipular de manera sencilla de las tiras de neopixel solo necesitando 4 datos; posición (x,y) del 
+led y los valores de intensidad de cada RGB(rojo,verde,azul).
