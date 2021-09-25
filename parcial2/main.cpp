@@ -10,14 +10,15 @@
 using namespace std;
 
 void reduccion(QImage,char);
-void aumento(QImage);
+void aumentoc(QImage);
+vector<int> aumentof(QImage, vector<int>);
 int agregar(char,QImage,int,int);
 ofstream outfile;
 
 int main()
 {
     int redu=0;
-    string name = "../pruebas_parcial2/imagenes/col.png";
+    string name = "../pruebas_parcial2/imagenes/ocho_ocho.jpg";
     QImage im(name.c_str());
     cin>>redu;
     char r='r',g='g',b='b';
@@ -28,7 +29,7 @@ int main()
         reduccion(im,b);
     }
     else{
-        aumento(im);
+        aumentoc(im);
     }
     outfile.close();
     return 0;
@@ -143,8 +144,64 @@ void reduccion(QImage im,char color){
     cout << promred.size() << endl;
 }
 
-void aumento(QImage){
+void aumentoc(QImage im){
+    int x1=im.width(),x2=16;
+    vector <int> mod_data;
+    for(int y=0;y<im.height();y++)
+    {
+        for(int x=0;x<x1;x++)
+        {
+            mod_data.push_back(im.pixelColor(x,y).red());
+            if(x1<=x+(x2-x1) && (x+x2-x1)<=x2)
+            {
+                for(int clon=1;clon<x2/x1;clon++)
+                {
+                    mod_data.push_back(im.pixelColor(x,y).red());
+                }
+            }
+        }
+    }
+    mod_data=aumentof(im,mod_data);
+    for(unsigned long long i=0;i<mod_data.size();i++)
+    {
+        if(i%16==0 && i!=0)
+        {
+            cout<<endl<<mod_data[i]<<", ";
+        }
+        else
+        {
+            cout<<mod_data[i]<<", ";
+        }
+    }
+    cout<<endl;
+    cout<<mod_data.size();
+}
 
+vector<int> aumentof(QImage im, vector<int> nuev_image)
+{
+    int y1=im.height(), y2=16,y=0,x=0,itera=16,aumento=0;
+    vector<int>::iterator it=nuev_image.begin();
+    while(y < y2-y1)
+    {
+        if(y1<=y+(y2-y1) && (y+y2-y1)<=y2)
+        {
+            for(int clon=1;clon<y2/y1;clon++)
+            {
+                while(x<16)
+                {
+                    nuev_image.insert(it+itera,nuev_image[1*x+aumento]);
+                    x=x+1;
+                    itera=itera+1;
+                    it=nuev_image.begin();
+                }
+            }
+        }
+        itera=itera+16;
+        x=0;
+        y=y+1;
+        aumento=aumento+32;
+    }
+    return nuev_image;
 }
 
 int agregar(char col,QImage im,int x,int y){
