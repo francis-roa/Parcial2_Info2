@@ -1,8 +1,3 @@
-#ifndef IMAGENES_H
-#define IMAGENES_H
-#include <iostream>
-#include <math.h>
-#include <string>
 #include <map>
 #include <vector>
 #include <fstream>
@@ -26,7 +21,7 @@ public:
     vector<int> aumentof(QImage, vector<int>);
     void igualc(QImage,char);
     int agregar(char,QImage,int,int);
-    void escribir(vector<int>);
+    void escribir(vector<int>,char);
     vector<int> rotar(vector<int>);
     QImage dar_imagen(void);
     void abrir_archivo();

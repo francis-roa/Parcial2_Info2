@@ -51,9 +51,9 @@ void imagen::reduccionc(QImage im,char color){
         //se rota la información en sentido horario
         promred2=rotar(promred2);
     }
-    escribir(promred2);
+    escribir(promred2,color);
     cout << promred2.size() << endl;
-    cout << promred.size() << endl;
+    cout << endl;
 }
 
 vector<int> imagen::reduccionf(QImage im, vector<int> promred)
@@ -122,9 +122,9 @@ void imagen::aumentoc(QImage im, char color){
         mod_data=reduccionf(im,mod_data);
         mod_data=rotar(mod_data);
     }
-    escribir(mod_data);
+    escribir(mod_data,color);
     cout<<endl;
-    cout<<mod_data.size();
+    cout<<mod_data.size()<<endl;
 }
 
 vector<int> imagen::aumentof(QImage im, vector<int> nuev_image)
@@ -183,14 +183,24 @@ int imagen::agregar(char col,QImage im,int x,int y){
 }
 
 //se escriben los datos en un archivo de texto y se muestran en consola
-void imagen::escribir(vector<int> datos)
+void imagen::escribir(vector<int> datos, char color)
 {
     for(int i=0; i<16*16;i++)
     {
         //escribir formato
         if(i==0){
-            cout <<"{"<<datos[i] << ", ";//inicio del formato
-            outfile<<"{"<<datos[i] << ", ";
+            if(color=='r'){
+                cout <<"byte r[]={"<<datos[i] << ", ";//inicio del formato
+                outfile<<"byte r[]={"<<datos[i] << ", ";
+            }
+            else if(color=='g'){
+                cout <<"byte g[]={"<<datos[i] << ", ";//inicio del formato
+                outfile<<"byte g[]{"<<datos[i] << ", ";
+            }
+            else if(color=='b'){
+                cout <<"byte b[]={"<<datos[i] << ", ";//inicio del formato
+                outfile<<"byte b[]={"<<datos[i] << ", ";
+            }
         }
         else if(i==16*16-1){
             cout << datos[i] << "}";//fin del formato
@@ -228,7 +238,8 @@ void imagen::igualc(QImage im,char color)
         data=reduccionf(im,data);
         data=rotar(data);
     }
-    escribir(data);
+    escribir(data,color);
+    cout<<endl;
 }
 
 vector<int> imagen::rotar(vector<int> mod_data)
