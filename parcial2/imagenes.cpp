@@ -129,7 +129,7 @@ void imagen::aumentoc(QImage im, char color){
 
 vector<int> imagen::aumentof(QImage im, vector<int> nuev_image)
 {
-    int y1=im.height(), y2=16,y=0,x=0,itera=16,aumento=0;
+    int y1=im.height(), y2=16,y=0,x=0,itera=16,aumento=0, control=1;
     int iaux=0, copy;
     vector<int>::iterator it;
     vector<int> nuev;
@@ -140,7 +140,7 @@ vector<int> imagen::aumentof(QImage im, vector<int> nuev_image)
         nuev.push_back(copy);
     }
     it=nuev.begin();
-    while(y < y2-y1)
+    while(y < y1)
     {
         if(y1<=y+(y2-y1) && (y+y2-y1)<=y2)
         {
@@ -148,13 +148,12 @@ vector<int> imagen::aumentof(QImage im, vector<int> nuev_image)
             {
                 while(x<16)
                 {
-                    //nuev_image.insert(it+itera,nuev_image[1*x+aumento]);
-                    //nuev[itera]=nuev_image[1*x+aumento];
-                    nuev.insert(it+itera,nuev[x+aumento]);
+                    nuev.insert(it+itera,nuev_image[x+aumento]);
                     x=x+1;
                     itera=itera+1;
                     it=nuev.begin();
                 }
+                x=0;
             }
         }
 
@@ -162,12 +161,19 @@ vector<int> imagen::aumentof(QImage im, vector<int> nuev_image)
         if(y+1==y1 && nuev.size()/16<16)
         {
             y=y-(y2-y1*2)+1;
-            itera=16*y;
+            itera=16;
+            aumento=0;
+            control=control+1;
         }
         else{
             y=y+1;
-            aumento=aumento+32;
-            itera=itera+16;
+            if(control>1){
+                itera=itera+16*control;
+            }
+            else{
+                itera=itera+16;
+            }
+            aumento=aumento+16;
         }
     }
     return nuev;
