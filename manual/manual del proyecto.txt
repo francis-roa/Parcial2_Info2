@@ -6,9 +6,8 @@ la imagen, en este archivo se encontraran 3 matices donde
 cada matriz es el conjunto de la intencidad de color de cada 
 pixel.
 
-3-copiar todo el contenido del archivo de texto y pegarlo en las 
-primeras lineas del codigo de tinkercad (pegar entre las lineas
-3 y 8).
+3-copiar y pegar en el condigo de arduino cada una de las matices 
+ente las lineas 4 y 6 (pegar antes del ";" situados en esas lineas). 
 
 4-ejecutar el codigo de tinkercad y observar como se genera la
 imagen el los leds.
