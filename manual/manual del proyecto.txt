@@ -1,0 +1,14 @@
+1-Al ejecutar el codigo se debera ingresar la direccion donde 
+esta guardada la imgen que se utilizara en el proyecto.
+
+2-el codigo generara un archivo texto en la misma direccion de 
+la imagen, en este archivo se encontraran 3 matices donde
+cada matriz es el conjunto de la intencidad de color de cada 
+pixel.
+
+3-copiar todo el contenido del archivo de texto y pegarlo en las 
+primeras lineas del codigo de tinkercad (pegar entre las lineas
+3 y 8).
+
+4-ejecutar el codigo de tinkercad y observar como se genera la
+imagen el los leds.
